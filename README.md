@@ -36,7 +36,7 @@ and normalizing the data to ensure it's ready for analysis.
   ```python
  df['date_column'] = pd.to_datetime(df['date_column'])
 df['numeric_column'] = pd.to_numeric(df['numeric_column'], errors='coerce')
-
+```
 
 
 ### Step 4: Handling Outliers
