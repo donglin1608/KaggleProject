@@ -40,22 +40,25 @@ df['numeric_column'] = pd.to_numeric(df['numeric_column'], errors='coerce')
 
 
 ### Step 4: Handling Outliers
-standard formula: 
+Standard formula: 
+```python
 Q1 = df['numeric_column'].quantile(0.25)
 Q3 = df['numeric_column'].quantile(0.75)
 IQR = Q3 - Q1
 outliers = df[(df['numeric_column'] < (Q1 - 1.5 * IQR)) | (df['numeric_column'] > (Q3 + 1.5 * IQR))]
 df = df[~df.index.isin(outliers.index)]
-
+```
 ### Step 5: Normalizing Data
-
+```python
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 df['normalized_column'] = scaler.fit_transform(df[['numeric_column']])
-
+```
 ### Step 6: Encoding Categorical Variables
-
+```python
 df = pd.get_dummies(df, columns=['categorical_column'])
-
+```
 ### Step 7: Saving the Cleaned Data
-
+```python
+df.to_csv('cleaned_data.csv', index=False)
+```
