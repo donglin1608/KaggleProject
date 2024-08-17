@@ -33,8 +33,10 @@ and normalizing the data to ensure it's ready for analysis.
 - Drop off missing values
 
 ### Step 3: Correcting Data Types
-df['date_column'] = pd.to_datetime(df['date_column'])
+  ```python
+ df['date_column'] = pd.to_datetime(df['date_column'])
 df['numeric_column'] = pd.to_numeric(df['numeric_column'], errors='coerce')
+
 
 
 ### Step 4: Handling Outliers
